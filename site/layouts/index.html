@@ -1,5 +1,17 @@
 {{ define "main" }}
-  <main class="cf ph3 ph5-l pv3 pv4-l f4 lh-copy mid-gray">
+  <main id="home-page" class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
     {{ .Content }}
+
+    <br />
+    <hr />
+    <h2>Location</h2>
+    <br />
+    <iframe
+      id="google-maps-iframe"
+      width="100%"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBf471di7MQmrr6rZwh9Qs9bW76qoN2yh0&q=Immanuel+Baptist+Church,Hamilton+OH" allowfullscreen>
+    </iframe>
   </main>
 {{ end }}

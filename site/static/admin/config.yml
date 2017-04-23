@@ -3,3 +3,20 @@ backend:
   repo: green-arrow/ibchamilton
   branch: master
   site_domain: ibchamilton.netlify.com
+
+# Physical location of uploads in folder structure
+media_folder: "static/images/uploads"
+# HTML 'src' location
+public_folder: "/images/uploads"
+
+collections:
+  - name: "about" # Used in routes, e.g. /admin/collections/blog
+    label: "About Us Page" # Used in the UI
+    folder: "site/content/about" # The path to the folder where the documents are stored
+    create: false # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template i.e. YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Featured Image", name: "featured_image", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}

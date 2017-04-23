@@ -6,22 +6,12 @@ tags: []
 title: "Immanuel Baptist Church"
 ---
 
-## Service Times
+## Regular Meeting Times
 
-#### Sunday 
+#### Sunday 9:30 am · 10:30 am | Wednesday 7:00 pm
 
-9:30 am - Sunday School
+## Fully Engaged
 
-10:30 am - Worship Celebration
+#### Sunday April 23 at 6:00PM
 
-#### Wednesday
-
-7:00 PM - Prayer and Bible Study
-
-#### Thursday
-
-6:30 - 8:30 - IGNITE Youth at the Big House 
-
-#### Special
-
-Sunday April 23 at 6:00PM - Fully Engaged. Relaxed, café style service with acoustic music.
+Relaxed, café style service with acoustic music.
