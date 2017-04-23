@@ -1,0 +1,11 @@
+<footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex">
+    <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="{{ .Site.BaseURL }}" >
+      &copy; {{ .Now.Format "2006" }} {{ .Site.Title }}
+    </a>
+
+    <div class="flex" style="flex: 1 0 auto; justify-content: flex-end;">
+      {{ partial "social-follow.html" . }}
+    </div>
+  </div>
+</footer>
