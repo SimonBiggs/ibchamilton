@@ -1,7 +1,7 @@
 ---
 date: 2017-04-21T15:52:42-04:00
 description: ""
-featured_image: ""
+featured_image: "/images/shepard.jpg"
 tags: []
 title: "Leadership"
 ---
