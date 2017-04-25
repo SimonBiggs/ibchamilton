@@ -24,9 +24,45 @@ body main {
   flex: 1 0 auto;
 }
 
-header.cover h1 {
+header .site-title {
   font-size: 3.5rem;
   font-weight: 400;
+}
+
+header .page-title {
+  text-align: center;
+}
+
+/* Site navigation */
+.site-home-link {
+  display: block;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.site-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 0 100%;
+  width: 100%;
+}
+
+.site-nav-list .site-nav-item {
+  flex: 1 0 33.33%;
+  width: 33.33%;
+  text-align: center;
+}
+
+.site-nav-list .site-nav-item:nth-child(1n+4) {
+  padding-top: 1.5rem;
+}
+
+.social-items {
+  display: flex;
+  justify-content: center;
+  flex: 1 0 100%;
+  width: 100%;
 }
 
 /* Home page contents */
@@ -58,14 +94,14 @@ header.cover h1 {
 }
 
 .page-list-item {
-  flex: 1 0 50%;
-  min-width: 50%;
+  flex: 1 0 100%;
+  min-width: 100%;
   padding: 1rem;
 }
 
 .sermon-list-item {
-  flex: 1 0 50%;
-  max-width: 50%;
+  flex: 1 0 100%;
+  max-width: 100%;
   padding: 1rem;
 }
 
@@ -144,8 +180,87 @@ main .pagination li.active a:visited {
     height: 100%;
 }
 
-@media screen and (min-width: 60em) {
-  header.cover h1 {
+@media screen and (max-width: 767px) {
+  header .site-title,
+  header .site-subtitle {
+    text-align: center;
+  }
+
+  header .site-title {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  header .page-title {
+    text-align: left;
+  }
+
+  .site-home-link {
+    display: inline-block;
+    text-align: left;
+    font-size: 2rem;
+  }
+
+  .site-nav-list .site-nav-item {
+    flex: 1 0 auto;
+    width: auto;
+    text-align: left;
+  }
+
+  .site-nav-list .site-nav-item:nth-child(1n+4) {
+    padding-top: 0;
+  }
+
+  .social-items {
+    justify-content: flex-start;
+  }
+
+  .page-list-item {
+    flex: 1 0 50%;
+    min-width: 50%;
+    padding: 1rem;
+  }
+
+  .sermon-list-item {
+    flex: 1 0 50%;
+    max-width: 50%;
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  header nav .flex-large-only {
+    display: flex;
+  }
+
+  header .site-title {
     font-size: 5rem;
+  }
+
+  header .page-title {
+    text-align: center;
+  }
+
+  .site-home-link {
+    font-size: 1.5rem;
+  }
+
+  .site-nav-list,
+  .social-items {
+    flex: 1 0 auto;
+    width: auto;
+  }
+
+  .site-nav-list {
+    margin: 1rem 1rem 1rem 0;
+  }
+
+  .social-items .link {
+    padding-top: 0;
+  }
+
+  .site-nav-list .site-nav-item {
+    padding-right: 1rem;
   }
 }

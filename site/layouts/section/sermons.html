@@ -9,7 +9,7 @@
 
   <div class="mw8 center {{ if not .Content }}mt4{{ end }}">
     {{ $paginator := .Paginate (where .Data.Pages "Section" .Section) 4 }}
-    <section class="flex-ns flex-wrap mt5 sermon-list-container">
+    <section class="flex flex-wrap mt5 sermon-list-container">
       {{ range  $paginator.Pages }}
         <div class="relative sermon-list-item">
           {{ .Render "summary" }}
