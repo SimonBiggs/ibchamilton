@@ -1,0 +1,33 @@
+{{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
+{{ define "main" }}
+  <div class="flex-l mt2 mw8 center">
+    <article class="cf pv5 ph3 ph4-ns mw7 flex-auto-ns order-1-ns">
+      <p class="f6 b tracked">
+        {{/* Humanize removes hyphens and capitalizes the first word */}}
+        {{ humanize .Section | upper  }}
+      </p>
+      <h1 class="f1">
+        {{ .Title }}
+      </h1>
+        {{/* Hugo uses Go's date formatting is set by example. Here are two formats */}}
+      <time class="f6 mv4 dib tracked" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+        {{ .Date.Format "January 2, 2006" }}
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
+        {{ .Content }}
+      </section>
+      {{ $youtube_id := .Params.youtube_id }}
+      {{ if $youtube_id }}
+        <section>
+          <div class="video-container">
+            <iframe class="youtube-player" type="text/html" width="100%" height="auto" src="https://www.youtube.com/embed/{{ $youtube_id }}" allowfullscreen frameborder="0">
+            </iframe>
+          </div>
+        </section>
+      {{ end }}
+    </article>
+    <div class="ph3 pv5 order-0-ns">
+      {{ partial "menu-contextual.html" . }}
+    </div>
+  </div>
+{{ end }}

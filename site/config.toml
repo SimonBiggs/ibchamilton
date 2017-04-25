@@ -22,23 +22,14 @@ enableRobotsTXT = true
   instagram = ""
   youtube = ""
   # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-  background_color_class = "bg-gray"
+  background_color_class = "bg-black"
   featured_image = "/images/ChurchEntrance_Compressed.jpg"
 
-[[menu.main]]
-  name = "Links"
-  url = "/links/"
-  weight = "20"
 
 [[menu.main]]
-  name = "Events"
-  url = "/events/"
-  weight = "15"
-
-[[menu.main]]
-  name = "Missions"
-  url = "/missions/"
-  weight = "10"
+  name = "About Us"
+  url = "/about/"
+  weight = "1"
 
 [[menu.main]]
   name = "Ministries"
@@ -46,6 +37,22 @@ enableRobotsTXT = true
   weight = "5"
 
 [[menu.main]]
-  name = "About Us"
-  url = "/about/"
-  weight = "1"
+  name = "Missions"
+  url = "/missions/"
+  weight = "10"
+
+[[menu.main]]
+  name = "Sermons"
+  url = "/sermons/"
+  weight = "10"
+
+[[menu.main]]
+  name = "Events"
+  url = "/events/"
+  weight = "15"
+
+[[menu.main]]
+  name = "Links"
+  url = "/links/"
+  weight = "20"
+

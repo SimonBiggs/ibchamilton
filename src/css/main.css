@@ -5,11 +5,31 @@ html, body {
   font-family: 'Muli', sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+body header,
+body footer {
+  flex: 0 1 auto;
+}
+
+body main {
+  flex: 1 0 auto;
+}
+
 header.cover h1 {
   font-size: 3.5rem;
   font-weight: 400;
 }
 
+/* Home page contents */
 #home-page {
   max-width: 50em;
 }
@@ -31,6 +51,7 @@ header.cover h1 {
   font-weight: 200;
 }
 
+/* Index page for sections with multiple pages (NOT sermons) */
 .page-list-container {
   margin: 0;
 }
@@ -46,6 +67,26 @@ header.cover h1 {
   text-align: center;
   color: white;
   font-size: 2rem;
+}
+
+/* Responsive videos */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width: 60em) {

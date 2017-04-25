@@ -10,13 +10,23 @@ media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "about" # Used in routes, e.g. /admin/collections/blog
-    label: "About Us Page" # Used in the UI
-    folder: "site/content/about" # The path to the folder where the documents are stored
-    create: false # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template i.e. YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
+  - name: "about"
+    label: "About Us Page"
+    folder: "site/content/about"
+    create: false
+    slug: "{{slug}}"
+    fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Featured Image", name: "featured_image", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "sermon"
+    label: "Sermon"
+    folder: "site/content/sermons"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Sermon Title", name: "title", widget: "string"}
+      - {label: "Sermon Date", name: "date", widget: "datetime"}
+      - {label: "Youtube Video ID", name: "youtube_id", widget: "string"}
+      - {label: "Sermon Description", name: "body", widget: "markdown"}

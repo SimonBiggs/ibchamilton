@@ -1,0 +1,22 @@
+{{ $youtube_id := .Params.youtube_id }}
+<article>
+  <a class="db ph3 ph0-l no-underline dark-gray dim" href="{{ .URL }}">
+    <div class="flex flex-column flex-row-ns">
+      {{ if $youtube_id }}
+        <div class="w-100 cover bg-center" style="background-image: url('http://img.youtube.com/vi/{{ $youtube_id }}/hqdefault.jpg');">
+          <div class="bg-black-60">
+            <div class="page-list-item-title">
+              {{ .Title }}
+            </div>
+          </div>
+        </div>
+      {{ else }}
+        <div class="w-100 bg-black-60">
+          <div class="page-list-item-title">
+            {{ .Title }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </a>
+</article>
