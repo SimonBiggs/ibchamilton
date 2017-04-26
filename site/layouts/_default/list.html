@@ -8,9 +8,9 @@
   {{ end }}
 
   <div class="mw8 center {{ if not .Content }}mt4{{ end }}">
-    {{ $section := where .Data.Pages "Section" .Section }}
+    {{ $paginator := .Paginate (where .Data.Pages "Section" .Section) 10 }}
     <section class="flex-ns flex-wrap justify-around mt5 page-list-container">
-      {{ range  $section }}
+      {{ range  $paginator.Pages }}
         <div class="relative page-list-item">
           {{ partial "summary-with-image.html" . }}
         </div>
