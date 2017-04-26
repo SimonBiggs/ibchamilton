@@ -52,7 +52,7 @@ enableRobotsTXT = true
   weight = "15"
 
 [[menu.main]]
-  name = "Links"
-  url = "/links/"
+  name = "Contact"
+  url = "/contact/"
   weight = "20"
 

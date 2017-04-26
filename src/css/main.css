@@ -255,6 +255,7 @@ main .pagination li.active a:visited {
 
   .site-home-link {
     font-size: 1.5rem;
+    margin-bottom: 0;
   }
 
   .site-nav-list,
