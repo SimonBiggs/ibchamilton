@@ -6,4 +6,5 @@
   command = "npm run build-preview"
 
 [context.production.environment]
+  HUGO_ENV = "production"
   HUGO_VERSION = "0.20"
