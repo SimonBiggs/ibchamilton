@@ -18,7 +18,7 @@ enableRobotsTXT = true
 [params]
   description = "The last theme you'll ever need. Maybe."
   facebook = "https://www.facebook.com/IBCHamilton"
-  twitter = "https://twitter.com/ibchamilton"
+  twitter = ""
   instagram = ""
   youtube = ""
   # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
@@ -27,7 +27,7 @@ enableRobotsTXT = true
 
 
 [[menu.main]]
-  name = "About Us"
+  name = "About"
   url = "/about/"
   weight = "1"
 
