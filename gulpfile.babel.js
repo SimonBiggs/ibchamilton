@@ -2,6 +2,9 @@ import gulp from "gulp";
 import cp from "child_process";
 import gutil from "gulp-util";
 import postcss from "gulp-postcss";
+import rev from "gulp-rev";
+import revDel from "gulp-rev-delete-original";
+import revReplace from "gulp-rev-replace";
 import cssImport from "postcss-import";
 import cssnext from "postcss-cssnext";
 import BrowserSync from "browser-sync";
@@ -15,8 +18,25 @@ const defaultArgs = ["-d", "../dist", "-s", "site", "-v"];
 gulp.task("hugo", (cb) => buildSite(cb));
 gulp.task("hugo-preview", (cb) => buildSite(cb, ["--buildDrafts", "--buildFuture"]));
 
-gulp.task("build", ["css", "js", "hugo"]);
+gulp.task("build", ["css", "js", "hugo", "rev-replace"]);
 gulp.task("build-preview", ["css", "js", "hugo-preview"]);
+
+gulp.task("revision-images", ["hugo"], () => (
+  gulp.src("./dist/images/**/*.jpg")
+    .pipe(rev())
+    .pipe(revDel())
+    .pipe(gulp.dest("./dist/images"))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest("./dist"))
+));
+
+gulp.task("rev-replace", ["revision-images"], () => {
+  const manifest = gulp.src("./dist/rev-manifest.json");
+
+  return gulp.src("./dist/**/*.html")
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest("./dist"));
+});
 
 gulp.task("css", () => (
   gulp.src("./src/css/*.css")
