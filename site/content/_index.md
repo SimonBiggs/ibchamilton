@@ -6,12 +6,13 @@ tags: []
 title: "Immanuel Baptist Church"
 ---
 
-## Regular Meeting Times
+## Regular Services
 
-#### Sunday 9:30 am · 10:30 am | Wednesday 7:00 pm
+#### Sunday 9:30 am · 10:30 am
+#### Wednesday 7:00 pm
 
 ## Fully Engaged
 
-#### Sunday April 23 at 6:00PM
+#### Sunday May 7 at 6:00PM
 
 Relaxed, café style service with acoustic music.
