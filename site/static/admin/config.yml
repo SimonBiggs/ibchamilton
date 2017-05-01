@@ -50,3 +50,14 @@ collections:
       - {label: "Sermon Date", name: "date", widget: "datetime"}
       - {label: "Youtube Video ID", name: "youtube_id", widget: "string"}
       - {label: "Sermon Description", name: "body", widget: "markdown"}
+  - name: "announcement"
+    label: "Announcement"
+    folder: "site/content/announcements"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Date", name: "date", widget: "hidden"}
+      - {label: "Announcement Title", name: "title", widget: "string"}
+      - {label: "Announcement Image", name: "featured_image", widget: "image"}
+      - {label: "Announcement Description", name: "body", widget: "markdown"}
+      - {label: "Announcement Priority", name: "priority", widget: "number"}
