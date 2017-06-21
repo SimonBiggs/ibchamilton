@@ -1,5 +1,5 @@
 ---
-date: 2017-07-01T12:00:00-0400
+date: 2017-07-01T12:00:00-04:00
 title: Baby Shower
 featured_image: null
 priority: '2'
