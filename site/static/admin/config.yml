@@ -66,7 +66,7 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Date", name: "date", widget: "hidden"}
+      - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Announcement Title", name: "title", widget: "string"}
       - {label: "Announcement Image", name: "featured_image", widget: "image", required: false}
       - {label: "Announcement Description", name: "body", widget: "markdown"}
