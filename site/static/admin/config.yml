@@ -50,6 +50,16 @@ collections:
       - {label: "Sermon Date", name: "date", widget: "datetime"}
       - {label: "Youtube Video ID", name: "youtube_id", widget: "string"}
       - {label: "Sermon Description", name: "body", widget: "markdown"}
+  - name: "link"
+    label: "Links Page"
+    folder: "site/content/links"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      #- {label: "Featured Image", name: "featured_image", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "announcement"
     label: "Announcement"
     folder: "site/content/announcements"
