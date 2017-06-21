@@ -68,6 +68,6 @@ collections:
     fields:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Announcement Title", name: "title", widget: "string"}
-      - {label: "Announcement Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Announcement Image", name: "featured_image", widget: "image", default: "", required: false}
       - {label: "Announcement Description", name: "body", widget: "markdown"}
       - {label: "Announcement Priority", name: "priority", widget: "number"}
