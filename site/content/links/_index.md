@@ -1,9 +1,9 @@
 ---
-date: 2017-04-23T07:42:01-04:00
-description: ""
-featured_image: "/images/nasa_usa.jpg"
+date: 2017-04-23T11:42:01.000Z
+description: Click on various links to show important documents
+featured_image: /images/nasa_usa.jpg
 tags: []
-title: "Links"
+title: Links
 ---
 
 ## Request Forms
@@ -17,9 +17,11 @@ title: "Links"
 * [Vision Strategic Proposal](http://ibchamilton.org/images/IBC%20Strat%20Plan%20March%202017.pdf)
 * [Process Chart](http://ibchamilton.org/images/Process%20Chart.pdf)
 
+
 ## Bulletins
 
 * [Bulletin](http://ibchamilton.org/images/Bulletin%20Page%201.pdf)
 
 ## Prayer List
 * [Prayer List](http://ibchamilton.org/images/Prayer%20list.pdf)
+
