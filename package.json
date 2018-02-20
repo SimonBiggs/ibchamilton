@@ -1,48 +1,38 @@
 {
-  "name": "ibchamilton",
+  "name": "gatsby-starter-default",
+  "description": "Gatsby default starter",
   "version": "1.0.0",
-  "description": "Official website for Immanuel Baptist Church, Hamilton, OH.",
-  "main": "index.js",
-  "scripts": {
-    "hugo": "gulp hugo",
-    "build": "gulp build && cp ./site/_headers ./dist/_headers",
-    "build-preview": "gulp build-preview",
-    "start": "gulp server",
-    "lint": "eslint src"
-  },
-  "author": "",
-  "license": "MIT",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "autoprefixer": "^6.3.7",
-    "babel-eslint": "^6.1.2",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
-    "babel-plugin-transform-class-properties": "^6.10.2",
-    "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.9.0",
-    "babel-register": "^6.11.6",
-    "browser-sync": "^2.13.0",
-    "css-loader": "^0.23.1",
-    "eslint": "^3.1.1",
-    "eslint-plugin-import": "^1.11.1",
-    "exports-loader": "^0.6.3",
-    "file-loader": "^0.9.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-postcss": "^6.1.1",
-    "gulp-util": "^3.0.7",
-    "imports-loader": "^0.6.5",
-    "postcss-cssnext": "^2.7.0",
-    "postcss-import": "^8.1.2",
-    "postcss-loader": "^0.9.1",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.13.1",
-    "whatwg-fetch": "^1.0.0"
+    "emotion": "^9.0.1",
+    "emotion-server": "^9.0.1",
+    "gatsby": "^1.9.158",
+    "gatsby-image": "^1.0.37",
+    "gatsby-link": "^1.6.34",
+    "gatsby-plugin-emotion": "^1.1.12",
+    "gatsby-plugin-react-helmet": "^2.0.3",
+    "gatsby-plugin-sharp": "^1.6.30",
+    "gatsby-plugin-typography": "^1.7.14",
+    "gatsby-source-filesystem": "^1.5.19",
+    "gatsby-transformer-remark": "^1.7.32",
+    "gatsby-transformer-sharp": "^1.6.19",
+    "react-emotion": "^9.0.1",
+    "react-helmet": "^5.2.0",
+    "typography": "^0.16.6",
+    "typography-theme-grand-view": "^0.15.10"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "gulp-rev": "^7.1.2",
-    "gulp-rev-delete-original": "^0.2.3",
-    "gulp-rev-replace": "^0.4.3"
+    "prettier": "^1.10.2"
   }
 }
