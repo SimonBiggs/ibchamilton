@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "emotion": "^9.0.1",
-    "emotion-server": "^9.0.1",
+    "emotion": "8",
+    "emotion-server": "8",
     "gatsby": "^1.9.158",
     "gatsby-image": "^1.0.37",
     "gatsby-link": "^1.6.34",
