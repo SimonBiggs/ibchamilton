@@ -1,0 +1,19 @@
+sudo: false
+language: node_js
+cache:
+  yarn: true
+  directories:
+  - "~/.npm"
+node_js: '8'
+install: yarn install
+script: yarn build
+branches:
+  only: master
+deploy:
+  provider: s3
+  access_key_id: AKIAIRD3OS577QO254HA
+  secret_access_key:
+    secure: rna2X9nWRWiRF1ICs+MTyeKXbJ9ReZY6b2xkXyFWkpvRmi3rXvy7+zOisEyw8r7R04t0fDL4VIzJvJfel5dCEMegBzGgOEHJqIWlLoXHPvH/ID7lRZSfy3eT3FqmTlaVu+Ho59XEWjiIQB6sE2QpVPwJwlR9wFtXF3GB/3qX9+A9+o7CqUTjxlgvPGDcPLM1gS6DAEg4D77It3Mu23ajxqlvFnOnc3F6AOYDKdLsczQKsrmYyu9v3h5n3Bz94bhABLhRFDcgMjO6M4hbnq/bMIM26oe3cUcf6bzx9Z/LOwekXp4I3ft2SFTzGdkVjJ4alTuHHzowqklcLwPWi7veWUTjso2a/oKG3o5XOpmtdjIZQdouh9xqxr/2bkNOsgKneStkNpO/Fnti/nvyltiC3I0LuOXvp+TZqzXomgtq1BhHNuDjCYE1PzIftwl9kkeThzbKeuEmyeX+ckLCqXu6ae6dSRfP//E1x5QZBbYlHL7vtLJPS88DIBlpQQoPJ9jBPZXoyCvSoBFBWBtNh0Wf6gIHJYnez1xjf5U/182Ipbw5TtTsWiblrH4KCL939Vc702kMt0Ds49uKOTT4PHgh6NghnUDInXcDGGDeZk3c46JyUaDDmYaKDmbMheOLlQ3/KdHB5LEPDkz3w6LDlvclzMi1C3onppvU4F+zdyuEzLo=
+  bucket: ibchamilton
+  skip_cleanup: true
+  local_dir: public
