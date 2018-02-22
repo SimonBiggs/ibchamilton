@@ -67,21 +67,14 @@ const MobileNav = styled.div`
   }
 
   .hamburger {
-    position: relative;
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
     display: inline-block;
     width: 33px;
     height: 22px;
-
-    input {
-      position: absolute;
-      top: -0.5rem;
-      left: -0.5rem;
-      width: calc(100% + 1rem);
-      height: calc(100% + 1rem);
-      cursor: pointer;
-      opacity: 0;
-      z-index: 2;
-    }
+    cursor: pointer;
+    z-index: 1;
 
     span {
       display: block;
@@ -101,15 +94,15 @@ const MobileNav = styled.div`
       }
     }
 
-    .menu {
+    + .menu {
+      display: flex;
       position: fixed;
       top: 0;
       bottom: 0;
       left: 0;
       width: 300px;
       max-width: 90%;
-      padding-top: 4.5rem;
-      padding-left: calc(1rem - 4px);
+      padding: 4.5rem 0 0 1.25rem;
       background-color: #fcfcfc;
       box-shadow: 4px 0 4px 0 rgba(0, 0, 0, 0.24);
       transform-origin: 0% 0%;
@@ -117,37 +110,51 @@ const MobileNav = styled.div`
       transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
       z-index: 0;
 
-      li {
-        :not(:last-child) {
-          margin-bottom: 1rem;
-        }
+      .nav {
+        width: 100%;
+        padding-bottom: 1rem;
 
-        a {
-          display: inline-block;
-          text-decoration: none;
+        li {
+          :not(:last-child) {
+            margin-bottom: 1rem;
+          }
+
+          a {
+            display: inline-block;
+            text-decoration: none;
+          }
         }
       }
     }
 
-    input:checked ~ span {
-      background: #232323;
+    &.active {
+      position: fixed;
 
-      &:nth-of-type(1) {
-        transform: rotate(45deg) translate(-2px, -1px);
+      span {
+        background: #232323;
+
+        &:nth-of-type(1) {
+          transform: rotate(45deg) translate(-2px, -1px);
+        }
+
+        &:nth-of-type(2) {
+          opacity: 0;
+          transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        &:nth-of-type(3) {
+          transform: rotate(-45deg) translate(0, -1px);
+        }
       }
 
-      &:nth-of-type(2) {
-        opacity: 0;
-        transform: rotate(0deg) scale(0.2, 0.2);
-      }
+      + .menu {
+        transform: translate(0, 0);
 
-      &:nth-of-type(3) {
-        transform: rotate(-45deg) translate(0, -1px);
+        .nav {
+          overflow-y: scroll;
+          -webkit-overflow-scrolling: touch;
+        }
       }
-    }
-
-    input:checked ~ .menu {
-      transform: translate(0, 0);
     }
   }
 `;
@@ -170,12 +177,16 @@ const DesktopNavList = styled.ul`
 `;
 
 const MainHeader = styled.h1`
-  margin-top: 1rem;
+  margin-top: 10rem;
   padding: 0 0.5rem;
   font-size: 3rem;
   font-weight: 400;
   text-align: center;
   color: white;
+
+  @media (min-width: ${screenSizes.SMALL}) {
+    margin-top: 15rem;
+  }
 
   @media (min-width: ${screenSizes.MEDIUM}) {
     font-size: 4rem;
@@ -184,17 +195,13 @@ const MainHeader = styled.h1`
 `;
 
 const SubHeader = styled.h2`
-  margin-top: 10rem;
+  margin-top: 1rem;
   padding: 0 0.5rem;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 200;
   text-align: center;
   color: white;
-
-  @media (min-width: ${screenSizes.SMALL}) {
-    margin-top: 15rem;
-  }
 
   @media (min-width: ${screenSizes.MEDIUM}) {
     margin-top: 2rem;
@@ -246,7 +253,7 @@ const generateNavItems = (pages, invertColors) => {
           {subNavItems.map(({ slug: subNavSlug, title: subNavTitle }) => (
             <li key={subNavSlug}>
               <Link
-                to={slug}
+                to={subNavSlug}
                 className={cx(flexContainer, { inverse: invertColors })}
               >
                 {subNavTitle}
@@ -259,52 +266,82 @@ const generateNavItems = (pages, invertColors) => {
   ));
 };
 
-const Header = props => {
-  const { title, description, imageSizes, pages } = props;
-  const mainHeader = title || 'Immanuel Baptist Church';
-  const subHeader = !title
-    ? 'The church on the hill with Hamilton on our hearts'
-    : description;
+class Header extends Component {
+  state = {
+    mobileNavOpen: false,
+  };
 
-  return (
-    <Wrapper>
-      {!!props.imageSizes && (
-        <HeroImage>
-          <Img
-            style={{ maxHeight: '100%', objectFit: 'cover' }}
-            sizes={props.imageSizes}
-          />
-          <Backdrop />
-        </HeroImage>
-      )}
-      <HeaderContents>
-        <Nav>
-          <MobileNav>
-            <div className="hamburger">
-              <input type="checkbox" />
-              <ul className="menu">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                {generateNavItems(pages)}
-              </ul>
-              <span />
-              <span />
-              <span />
-            </div>
-          </MobileNav>
-          <DesktopNav>
-            <Link to="/" className={`${flexContainer} inverse`}>
-              Immanuel Baptist Church
-            </Link>
-            <DesktopNavList>{generateNavItems(pages, true)}</DesktopNavList>
-          </DesktopNav>
-        </Nav>
-        <MainHeader>{mainHeader}</MainHeader>
-        {!!subHeader && <SubHeader>{subHeader}</SubHeader>}
-      </HeaderContents>
-    </Wrapper>
-  );
-};
+  render() {
+    const { mobileNavOpen } = this.state;
+    const { title, description, imageSizes, pages } = this.props;
+    const mainHeader = title || 'Immanuel Baptist Church';
+    const subHeader = !title
+      ? 'The church on the hill with Hamilton on our hearts'
+      : description;
+
+    return (
+      <Wrapper>
+        {!!imageSizes && (
+          <HeroImage>
+            <Img
+              style={{ maxHeight: '100%', objectFit: 'cover' }}
+              sizes={imageSizes}
+            />
+            <Backdrop />
+          </HeroImage>
+        )}
+        <HeaderContents>
+          <Nav>
+            <MobileNav
+              onClick={e => {
+                if (e.defaultPrevented) {
+                  document.body.classList.remove('no-scroll');
+                }
+              }}
+            >
+              <div
+                role="button"
+                className={cx('hamburger', { active: mobileNavOpen })}
+                onClick={() =>
+                  this.setState(prevState => {
+                    const mobileNavOpen = !prevState.mobileNavOpen;
+
+                    if (mobileNavOpen) {
+                      document.body.classList.add('no-scroll');
+                    } else {
+                      document.body.classList.remove('no-scroll');
+                    }
+
+                    return { mobileNavOpen };
+                  })
+                }
+              >
+                <span />
+                <span />
+                <span />
+              </div>
+              <div className="menu">
+                <ul className="nav">
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  {generateNavItems(pages)}
+                </ul>
+              </div>
+            </MobileNav>
+            <DesktopNav>
+              <Link to="/" className={`${flexContainer} inverse`}>
+                Immanuel Baptist Church
+              </Link>
+              <DesktopNavList>{generateNavItems(pages, true)}</DesktopNavList>
+            </DesktopNav>
+          </Nav>
+          <MainHeader>{mainHeader}</MainHeader>
+          {!!subHeader && <SubHeader>{subHeader}</SubHeader>}
+        </HeaderContents>
+      </Wrapper>
+    );
+  }
+}
 
 export default Header;

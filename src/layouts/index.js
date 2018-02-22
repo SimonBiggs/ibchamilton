@@ -1,8 +1,20 @@
 import React from 'react';
+import { injectGlobal } from 'emotion';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 import Header from '../components/Header';
+
+injectGlobal`
+  body.no-scroll {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+`;
 
 const TemplateWrapper = props => {
   const {
