@@ -16,6 +16,6 @@ These classes have various activities and fellowships throughout the year.
 
 **Side by Side** - Mature Men and Women
 
-**Bridge** - Open to anyone in there 30's, 40's, 50's, and youthful 60's
+**Bridge** - Open to anyone in their 30's, 40's, 50's, and youthful 60's
 
 **Connect** - Young men and women of college and career age
