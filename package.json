@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "common-tags": "^1.7.2",
     "emotion": "8",
     "emotion-server": "8",
     "gatsby": "^1.9.158",
