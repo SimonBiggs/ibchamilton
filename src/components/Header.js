@@ -211,7 +211,7 @@ const SubHeader = styled.h2`
 const generateNavItems = (pages, invertColors) => {
   const navItems = pages.reduce((items, page) => {
     const {
-      node: { fields: { slug }, frontmatter: { title, navTitle } },
+      node: { html, fields: { slug }, frontmatter: { title, navTitle } },
     } = page;
     const isRootPage = slug.match(/\//g).length === 2;
 
@@ -231,7 +231,7 @@ const generateNavItems = (pages, invertColors) => {
         );
 
       const navItem = {
-        slug,
+        slug: !html ? subNavItems[0].slug : slug,
         title: navTitle || title,
         subNavItems,
       };

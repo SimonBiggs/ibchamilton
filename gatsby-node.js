@@ -69,6 +69,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             component: pageTemplate,
             context: {
               slug,
+              rootPageSlug: rootPage,
               subNavSlugRegex: `/${rootPage}/`,
             },
           });

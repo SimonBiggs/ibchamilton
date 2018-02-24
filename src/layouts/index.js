@@ -55,9 +55,10 @@ export const layoutQuery = graphql`
         ...GatsbyImageSharpSizes
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___order] }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___order, fields___slug] }) {
       edges {
         node {
+          html
           fields {
             slug
           }

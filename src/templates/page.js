@@ -40,17 +40,24 @@ const MainContent = styled.div`
   flex: 1 0 0;
 `;
 
-export default ({ data }) => {
-  const post = data.markdownRemark;
-  const subPages = data.allMarkdownRemark.edges;
+export default props => {
+  const { data, pathContext: { rootPageSlug } } = props;
+  const { markdownRemark: post, allMarkdownRemark: { edges: subPages } } = data;
   const showSideNav = !!subPages && subPages.length > 1;
+  const rootPage = showSideNav && subPages[0].node;
+  const firstSubPage = showSideNav && subPages[1].node;
 
   return (
     <PageLayout>
       {showSideNav && (
         <SideNav>
           <SideNavList>
-            {data.allMarkdownRemark.edges.map(({ node }) => {
+            <li key={rootPageSlug}>
+              <Link to={firstSubPage.fields.slug}>
+                {rootPage.frontmatter.title}
+              </Link>
+            </li>
+            {subPages.slice(1, subPages.length).map(({ node }) => {
               const { fields: { slug }, frontmatter: { title } } = node;
 
               return (
